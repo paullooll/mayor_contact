@@ -246,22 +246,22 @@
       />
 
       <!-- Name & Title -->
-      <h1>John Doe</h1>
-      <p class="title">Software Developer</p>
+      <h1>Raisa Trenás</h1>
+      <p class="title">Iloilo City Mayor</p>
 
       <!-- Contact Info Boxes -->
       <div class="contact-info">
         <div class="contact-item">
           <span class="emoji">📞</span>
-          <span class="text">+63 912 345 6789</span>
+          <span class="text">+639173272472</span>
         </div>
         <div class="contact-item">
           <span class="emoji">✉️</span>
-          <span class="text">john@example.com</span>
+          <span class="text">raisatrenas2023@gmail.com</span>
         </div>
         <div class="contact-item">
           <span class="emoji">📍</span>
-          <span class="text">Iloilo City, Philippines</span>
+          <span class="text">Iloilo City Proper, Iloilo City</span>
         </div>
         <!-- Facebook as Contact Item -->
         <a
@@ -280,36 +280,36 @@
     </div>
 
     <script>
-  document.querySelector(".save-btn").addEventListener("click", () => {
-    // vCard format content
-    const vCardContent = `BEGIN:VCARD
+      document.querySelector(".save-btn").addEventListener("click", () => {
+        // vCard format content
+        const vCardContent = `BEGIN:VCARD
 VERSION:3.0
-FN:John Doe
-ORG:Software Developer
-TEL:+639123456789
-EMAIL:john@example.com
+FN:Raisa Trenás
+ORG:Iloilo City Mayor
+TEL:+639173272472
+EMAIL:raisatrenas2023@gmail.com
 ADR:;;Iloilo City;;Philippines
 END:VCARD`;
 
-    // Create a Blob with the vCard data
-    const blob = new Blob([vCardContent], { type: "text/vcard" });
-    const url = URL.createObjectURL(blob);
+        // Create a Blob with the vCard data
+        const blob = new Blob([vCardContent], { type: "text/vcard" });
+        const url = URL.createObjectURL(blob);
 
-    // Create a temporary link to trigger the download
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = "John_Doe.vcf";  // Suggested filename
-    a.style.display = "none";
-    document.body.appendChild(a);
-    a.click();
+        // Create a temporary link to trigger the download
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "John_Doe.vcf"; // Suggested filename
+        a.style.display = "none";
+        document.body.appendChild(a);
+        a.click();
 
-    // Cleanup
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
+        // Cleanup
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
 
-    // Optional: Show feedback
-    alert("Contact download started. Open the file to save to your phone.");
-  });
-</script>
+        // Optional: Show feedback
+        alert("Contact download started. Open the file to save to your phone.");
+      });
+    </script>
   </body>
 </html>

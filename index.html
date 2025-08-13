@@ -280,14 +280,36 @@
     </div>
 
     <script>
-      // Save contact feedback
-      document.querySelector(".save-btn").addEventListener("click", () => {
-        const message = localStorage.getItem("contactSaved")
-          ? "Already saved to your phone! 📲"
-          : "Contact saved successfully!";
-        localStorage.setItem("contactSaved", "true");
-        alert(message);
-      });
-    </script>
+  document.querySelector(".save-btn").addEventListener("click", () => {
+    // vCard format content
+    const vCardContent = `BEGIN:VCARD
+VERSION:3.0
+FN:John Doe
+ORG:Software Developer
+TEL:+639123456789
+EMAIL:john@example.com
+ADR:;;Iloilo City;;Philippines
+END:VCARD`;
+
+    // Create a Blob with the vCard data
+    const blob = new Blob([vCardContent], { type: "text/vcard" });
+    const url = URL.createObjectURL(blob);
+
+    // Create a temporary link to trigger the download
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "John_Doe.vcf";  // Suggested filename
+    a.style.display = "none";
+    document.body.appendChild(a);
+    a.click();
+
+    // Cleanup
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+
+    // Optional: Show feedback
+    alert("Contact download started. Open the file to save to your phone.");
+  });
+</script>
   </body>
 </html>
